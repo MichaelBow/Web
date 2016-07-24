@@ -94,8 +94,8 @@ func main() {
 			//fmt.Printf("%.6f\n", f)
 			//replace the above with a interface call
 			money := Currency{p.List.Resources[i].Resource.Fields.Price}
-			fmt.Println(money.inverse()) //interface returing string
-			inverse(money) //method returning std.o (println)
+			fmt.Println(money.inverse()) //value with attached method
+			inverse(money) //interface returning std.o (println)
 
 		}
 	}
