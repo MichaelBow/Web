@@ -8,6 +8,8 @@ import (
 	"strconv"
 )
 
+// Take the URL with your json data eg. http://finance.yahoo.com/webservice/v1/symbols/allcurrencies/quote?format=json
+// convert to struct format at https://mholt.github.io/json-to-go/
 type Allcurrencies struct {
 	List struct {
 		Meta struct {
@@ -30,6 +32,32 @@ type Allcurrencies struct {
 			} `json:"resource"`
 		} `json:"resources"`
 	} `json:"list"`
+}
+
+// storing a currency as type string ready for interface
+type Currency struct {
+	price string
+}
+
+//function to convert to float then trim and convert back to string with .6 decimal precision
+func (z Currency) inverse() string {
+	price, err := strconv.ParseFloat(z.price, 64)
+	if err != nil {
+		panic(err)
+	}
+	//return as swapped currency value pair
+	price = 1 / price
+	return fmt.Sprintf("%.6f", price)
+}
+
+//interface to return a converted and inverse currency pair
+type CurrencySwap interface {
+	inverse() string
+}
+
+//method to format the float
+func inverse(z CurrencySwap) {
+	fmt.Println(z.inverse())
 }
 
 func main() {
@@ -58,13 +86,18 @@ func main() {
 			fmt.Println(p.List.Resources[i].Resource.Fields.Name)
 			fmt.Println(p.List.Resources[i].Resource.Fields.Price)
 			fmt.Println("GBP/USD")
-			f, err := strconv.ParseFloat(p.List.Resources[i].Resource.Fields.Price, 64)
-			if err != nil {
-				panic(err)
-			}
-			f = 1 / f
-			fmt.Printf("%.6f\n", f)
+			//f, err := strconv.ParseFloat(p.List.Resources[i].Resource.Fields.Price, 64)
+			//if err != nil {
+			//	panic(err)
+			//}
+			//f = 1 / f
+			//fmt.Printf("%.6f\n", f)
+			//replace the above with a interface call
+			money := Currency{p.List.Resources[i].Resource.Fields.Price}
+			fmt.Println(money.inverse()) //interface returing string
+			inverse(money) //method returning std.o (println)
 
 		}
 	}
+
 }
