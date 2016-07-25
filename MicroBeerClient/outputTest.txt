@@ -1,0 +1,36 @@
+{
+	"YEASTS": {
+		"YEAST": [
+			{
+				"NAME": "European Ale",
+				"TYPE": "Ale",
+				"FORM": "Liquid",
+				"AMOUNT": "0.0350000",
+				"LABORATORY": "White Labs",
+				"PRODUCT_ID": "WLP011",
+				"MIN_TEMPERATURE": "18.3000",
+				"MAX_TEMPERATURE": "21.1000",
+				"FLOCCULATION": "Medium",
+				"ATTENUATION": "67.5",
+				"NOTES": "Malty, Northern European ale yeast.  Low ester production, low sulfur, gives a clean profile.  Low attenuation contributes to malty taste.",
+				"BEST_FOR": "Alt, Kolsch, malty English Ales, Fruit beers",
+				"CULTURE_DATE": "7/25/2016"
+			},
+			{
+				"NAME": "American Ale",
+				"TYPE": "Ale",
+				"FORM": "Liquid",
+				"AMOUNT": "0.1250000",
+				"LABORATORY": "Wyeast Labs",
+				"PRODUCT_ID": "1332",
+				"MIN_TEMPERATURE": "18.3000",
+				"MAX_TEMPERATURE": "23.9000",
+				"FLOCCULATION": "High",
+				"ATTENUATION": "69.0",
+				"NOTES": "Classic Northwest US ale yeast.  Slight fruit flavor, malty ale with good body and balance.",
+				"BEST_FOR": "Oregon Ales, All American Ale styles",
+				"CULTURE_DATE": "8/11/2015"
+			}
+		]
+	}
+}

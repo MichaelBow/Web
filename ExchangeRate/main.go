@@ -97,6 +97,7 @@ func main() {
 			fmt.Println(money.inverse()) //value with attached method
 			inverse(money) //interface returning std.o (println)
 
+
 		}
 	}
 
